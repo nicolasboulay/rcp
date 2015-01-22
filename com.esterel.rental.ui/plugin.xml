@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="com.esterel.rental.ui.category"
+            class="com.esterel.rental.ui.views.RentalPropertyTreeView"
+            icon="icons/Agency.png"
+            id="com.esterel.rental.ui.views.RentalPropertyTreeView"
+            name="Agencys"
+            restorable="true">
+      </view>
+      <view
+            category="com.esterel.rental.ui.category"
+            class="com.esterel.rental.ui.views.RentalPropertyView"
+            icon="icons/RentalObjects.png"
+            id="com.esterel.rental.ui.views.RentalPropertyView"
+            name="rental "
+            restorable="true">
+      </view>
+      <category
+            id="com.esterel.rental.ui.category"
+            name="rental">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.esterel.rental.ui.RentalPerspectiveFactory"
+            icon="icons/Agency.png"
+            id="com.esterel.rental.ui.RentalPerspective"
+            name="rental perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="com.esterel.rental.ui.RentalPreferencePages"
+            id="com.esterel.rental.ui.RentalPreferencePages"
+            name="Colors">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.esterel.rental.ui.RentalAbstractPreferenceInitializer">
+      </initializer>
+   </extension>
+
+</plugin>
