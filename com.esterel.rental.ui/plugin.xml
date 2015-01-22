@@ -47,5 +47,66 @@
             class="com.esterel.rental.ui.RentalAbstractPreferenceInitializer">
       </initializer>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="com.esterel.rental.ui.HelloWorld"
+            name="helloWorld">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="com.esterel.rental.ui.handlers.HandlerHelloWorld"
+            commandId="com.esterel.rental.ui.HelloWorld">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <command
+               commandId="com.esterel.rental.ui.HelloWorld"
+               label="Hello World"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.views.ResourceNavigator?after=additions">
+         <command
+               commandId="com.esterel.rental.ui.HelloWorld"
+               label="Hello World menu"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:com.esterel.rental.ui.views.RentalPropertyTreeView?after=additions">
+         <command
+               commandId="com.esterel.rental.ui.HelloWorld"
+               label="hello world popup"
+               style="push">
+         </command>
+         <separator
+               name="com.esterel.rental.ui.separator1"
+               visible="true">
+         </separator>
+         <menu
+               label="label">
+            <command
+                  commandId="com.esterel.rental.ui.HelloWorld"
+                  label="hello world popup 3"
+                  style="push">
+            </command>
+         </menu>
+         <command
+               commandId="com.esterel.rental.ui.HelloWorld"
+               label="hello world popup 2"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
 
 </plugin>
