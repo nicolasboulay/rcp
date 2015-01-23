@@ -1,10 +1,17 @@
 package com.esterel.rental.ui;
 
+import java.util.HashMap;
+
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.viewers.IColorProvider;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
@@ -45,6 +52,7 @@ public class RentalUIActivator extends AbstractUIPlugin implements RentalUIConst
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		printExtension();
+		readPaletteExtension();
 		plugin = this;
 	}
 
@@ -76,4 +84,42 @@ public class RentalUIActivator extends AbstractUIPlugin implements RentalUIConst
 		reg.put(ICONE_AGENCY, ImageDescriptor.createFromURL(b.getEntry(ICONE_AGENCY)));
 	
 	}
+	class Palette implements IColorProvider {
+		public String ID, name;
+		public IColorProvider icp;
+		@Override
+		public Color getForeground(Object element) {
+			return icp.getForeground(element);
+		}
+		@Override
+		public Color getBackground(Object element) {
+			return icp.getBackground(element);
+		}
+		
+	}
+	private HashMap<String,Palette> paletteManager = new HashMap<String, RentalUIActivator.Palette>();
+	private void readPaletteExtension() {
+		IExtensionRegistry reg = Platform.getExtensionRegistry();
+		for(IConfigurationElement e : reg.getConfigurationElementsFor("com.esterel.rental.ui.palette")) {
+			System.out.println("Plugin : " + e.getNamespaceIdentifier() + " " + e.getName()+ " : " +e.getAttribute("name"));
+			Palette p = new Palette();
+			p.name = e.getAttribute("name");
+			p.ID = e.getAttribute("ID");
+			try {
+				p.icp = (IColorProvider) e.createExecutableExtension("class");
+				paletteManager.put(p.ID, p);
+			} catch (CoreException ex) {
+				getLog().log(new Status(IStatus.ERROR, e.getNamespaceIdentifier(), 
+						"Unable to create extension.", ex));
+			}
+
+			
+		}
+		
+	}
+	public HashMap<String,Palette> getPaletteManager()
+	{
+		return paletteManager;
+	} 
+	
 }

@@ -22,6 +22,7 @@ public class RentalAbstractPreferenceInitializer extends
 		ps.setDefault(P_COLOR_CUSTOMERS, StringConverter.asString(new RGB(200,100,50)));
 		ps.setDefault(P_COLOR_OBJECT, StringConverter.asString(new RGB(100,200,50)));
 		ps.setDefault(P_COLOR_RENTAL, StringConverter.asString(new RGB(50,100,200)));
+		ps.setDefault(P_PALETTE_RENTAL, "com.esterel.rental.ui.DefaultPalette");
 	}
 
 }

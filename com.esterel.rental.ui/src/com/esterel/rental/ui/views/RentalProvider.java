@@ -136,39 +136,23 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 		}
 		
 	}
-
-	private Color getAColor(String rgbKey) {
-		ColorRegistry colorRegistry = JFaceResources.getColorRegistry(); 
-		Color col = colorRegistry.get(rgbKey);
-		if(col == null) {
-			colorRegistry.put(rgbKey, StringConverter.asRGB(rgbKey));
-			col = colorRegistry.get(rgbKey);
-		}
-		return col;
-	}
 	
-	private Color getColorWithKey(String Key) {
-		return getAColor (
-		(RentalUIActivator.getDefault().getPreferenceStore().getString(Key)));
+	private IColorProvider getPalette() {
+		String pid =
+		(RentalUIActivator.getDefault().getPreferenceStore().getString(P_PALETTE_RENTAL));
+		return (IColorProvider) RentalUIActivator.getDefault().getPaletteManager().get(pid);
+
 	}
 	
 	@Override
 	public Color getForeground(Object element) {
-		if (element instanceof Customer) {
-			//return Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);  
-			return getColorWithKey(P_COLOR_CUSTOMERS);
-		}
-		return null;
+		return getPalette().getForeground(element);
+
 	}
 
 	@Override
 	public Color getBackground(Object element) {
-		if (element instanceof RentalObject) {
-			//turn Display.getCurrent().getSystemColor(SWT.COLOR_GRAY);
-			return getColorWithKey(P_COLOR_OBJECT);
-		}
-		// TODO Auto-generated method stub
-		return null;
+		return getPalette().getBackground(element);
 	}
 	
 	@Override

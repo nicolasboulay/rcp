@@ -42,9 +42,15 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
+            category="com.esterel.rental.ui.RentalPalettePreferencePages"
             class="com.esterel.rental.ui.RentalPreferencePages"
             id="com.esterel.rental.ui.RentalPreferencePages"
             name="Colors">
+      </page>
+      <page
+            class="com.esterel.rental.ui.RentalPalettePreferencePages"
+            id="com.esterel.rental.ui.RentalPalettePreferencePages"
+            name="palette">
       </page>
    </extension>
    <extension
@@ -113,6 +119,19 @@
                style="push">
          </command>
       </menuContribution>
+   </extension>
+   <extension
+         point="com.esterel.rental.ui.palette">
+      <palette
+            ID="com.esterel.rental.ui.DefaultPalette"
+            class="com.esterel.rental.ui.palettes.DefaultPalette"
+            name="Default">
+      </palette>
+      <palette
+            ID="com.esterel.rental.ui.black"
+            class="com.esterel.rental.ui.palettes.ColorProviderBlack"
+            name="Black">
+      </palette>
    </extension>
 
 </plugin>
