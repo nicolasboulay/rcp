@@ -31,9 +31,6 @@ public class RentalUIActivator extends AbstractUIPlugin implements RentalUIConst
 	
 	private void printExtension() {
 		IExtensionRegistry reg = Platform.getExtensionRegistry();
-		
-		//IExtensionPoint extensionPoint = reg.getExtensionPoint("org.eclipse.ui.views");
-		
 		for(IConfigurationElement e : reg.getConfigurationElementsFor("org.eclipse.ui.views")) {
 			
 			System.out.println("Plugin : " + e.getNamespaceIdentifier() + " " + e.getName()+ " : " +e.getAttribute("name"));
