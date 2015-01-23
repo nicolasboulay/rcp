@@ -12,6 +12,7 @@ public class RentalPerspectiveFactory implements IPerspectiveFactory {
 
 		layout.addView("com.esterel.rental.ui.views.RentalPropertyTreeView", IPageLayout.LEFT, 0.5f, IPageLayout.ID_EDITOR_AREA);
 		layout.addView("com.esterel.rental.ui.views.RentalPropertyView", IPageLayout.LEFT, 0.5f, IPageLayout.ID_EDITOR_AREA);
+		layout.addView("com.esterel.rental.ui.views.CustomerViews", IPageLayout.BOTTOM, 0.5f, IPageLayout.ID_EDITOR_AREA);
 	}
 
 }

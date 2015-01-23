@@ -23,6 +23,11 @@
             id="com.esterel.rental.ui.category"
             name="rental">
       </category>
+      <view
+            class="com.esterel.rental.ui.views.CustomerViews"
+            id="com.esterel.rental.ui.views.CustomerViews"
+            name="Customers">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectives">
