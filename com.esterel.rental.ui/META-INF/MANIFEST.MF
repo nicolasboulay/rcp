@@ -5,9 +5,10 @@ Bundle-SymbolicName: com.esterel.rental.ui;singleton:=true
 Bundle-Version: 1.0.0
 Bundle-Activator: com.esterel.rental.ui.RentalUIActivator
 Bundle-Vendor: ESTEREL
-Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime,
- com.esterel.rental.core;bundle-version="1.0.0"
+Require-Bundle: org.eclipse.ui;resolution:=optional,
+ org.eclipse.rap.ui;bundle-version="2.3.1";resolution:=optional,
+ com.esterel.rental.core;bundle-version="1.0.0",
+ org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: com.esterel.rental.ui
