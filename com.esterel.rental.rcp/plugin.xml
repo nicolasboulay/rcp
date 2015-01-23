@@ -4,6 +4,7 @@
 
    <extension
          id="application"
+         name="Rental"
          point="org.eclipse.core.runtime.applications">
       <application>
          <run
@@ -15,9 +16,11 @@
          id="product"
          point="org.eclipse.core.runtime.products">
       <product
-            application="com.esterel.rental.rcp.application">
+            application="com.esterel.rental.rcp.application"
+            name="Rental">
          <property
-               name="appName">
+               name="appName"
+               value="Rental">
          </property>
       </product>
    </extension>
