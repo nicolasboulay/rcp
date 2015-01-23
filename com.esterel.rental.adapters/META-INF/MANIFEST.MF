@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Adapters
+Bundle-SymbolicName: com.esterel.rental.adapters;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.esterel.rental.adapters.Activator
+Bundle-Vendor: ESTEREL
+Require-Bundle: org.eclipse.core.runtime,
+ com.esterel.rental.core;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
