@@ -1,11 +1,12 @@
 package com.esterel.rental.ui;
 
-import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
 
 public class RentalPerspectiveFactory implements IPerspectiveFactory {
 
+	public static final String ID = "com.esterel.rental.ui.RentalPerspective"; 
+	
 	@Override
 	public void createInitialLayout(IPageLayout layout) {
 		layout.setEditorAreaVisible(false);

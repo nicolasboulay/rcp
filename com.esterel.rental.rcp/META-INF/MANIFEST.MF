@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rcp
+Bundle-SymbolicName: com.esterel.rental.rcp;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: ESTEREL
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ com.esterel.rental.adapters;bundle-version="1.0.0",
+ com.esterel.rental.ui.cmd;bundle-version="1.0.0",
+ com.esterel.rental.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
